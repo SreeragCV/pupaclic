@@ -12,7 +12,8 @@ exports.verifyUserToken = (req, res, next) => {
       return res.status(401).send("Unauthorized Request");
     let verifiedUser = jwt.verify(token, process.env.TOKEN_SECRET);
     if (!verifiedUser) return res.status(401).send("Unauthorized Request");
-    req.user = verifiedUser;
+    req.user_id = verifiedUser.user_id;
+    req.type = verifiedUser.type;
     next();
   } catch (error) {
     res.status(400).send("Invalid Token");

@@ -19,10 +19,6 @@ const profileSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
-      employement: {
-        type: String,
-        required: true,
-      },
     },
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
