@@ -28,7 +28,6 @@ const enquirySchema = new mongoose.Schema(
         },
         preference: {
           type: String,
-          enum: ["primary", "secondary"],
           required: true,
         },
       },

@@ -14,7 +14,7 @@ exports.createUser = async (req, res) => {
     const newUser = new User({ type, firstName, lastName, email });
     await newUser.save();
     const token = jwtGenerator(newUser.id, newUser.type);
-    return res.status(200).json({ message: "SUCCESS", token });
+    return res.status(200).json({ message: "SUCCESS", token, id: newUser.id });
   } catch (error) {
     res.status(500).json({ error: "Server Error" });
   }
