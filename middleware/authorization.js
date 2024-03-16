@@ -19,3 +19,18 @@ exports.verifyUserToken = (req, res, next) => {
     res.status(400).send("Invalid Token");
   }
 };
+
+exports.isUser = async (req, res, next) => {
+  if (req.type === "user" || "admin") {
+    return next();
+  }
+  return res.status(401).json("UNAUTHORIZED USER!!");
+};
+
+exports.isAdmin = async (req, res, next) => {
+  if (req.type === "admin") {
+    return next();
+  }
+  return res.status(401).json("ONLY ADMIN CAN DO THAT!!!");
+};
+

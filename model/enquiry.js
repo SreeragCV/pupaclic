@@ -9,11 +9,6 @@ const enquirySchema = new mongoose.Schema(
     },
     teams: [
       {
-        user_id: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-          required: true,
-        },
         name: {
           type: String,
           required: true,
@@ -28,6 +23,7 @@ const enquirySchema = new mongoose.Schema(
         },
         preference: {
           type: String,
+          enum: ["primary", "secondary"],
           required: true,
         },
       },

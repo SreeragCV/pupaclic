@@ -1,4 +1,5 @@
 const Typesense = require("typesense");
+require("dotenv").config();
 
 const client = new Typesense.Client({
   nodes: [

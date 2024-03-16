@@ -1,4 +1,4 @@
-const client = require("../config/typesenseConfig");
+const client = require("../typesense/typesenseConfig");
 const Profile = require("../model/profile");
 
 module.exports.createProfile = async (req, res) => {
@@ -30,6 +30,8 @@ module.exports.createProfile = async (req, res) => {
       updatedAt: newProfile.updatedAt.getTime(),
       ...newProfile.profile_info,
     };
+
+    console.log(flattenedData);
 
     const response = await client
       .collections("profile")
